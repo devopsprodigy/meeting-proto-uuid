@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package meeting.uuid.proto;
+
+message Request {}
+
+message Response {
+    string uuid = 1;
+}
+
+service GetService{
+    rpc Get(Request) returns (Response);
+}
