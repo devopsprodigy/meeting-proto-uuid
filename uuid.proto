@@ -6,6 +6,7 @@ message Request {}
 
 message Response {
     string uuid = 1;
+    string instance = 2;
 }
 
 service GetService{
