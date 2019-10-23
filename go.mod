@@ -1,3 +1,3 @@
-module proto_uuid
+module meeting-proto-uuid
 
 go 1.13
