@@ -1,1 +1,2 @@
-protoc --go_out=plugins=grpc:. uuid.proto
+#GO protoc --go_out=plugins=grpc:. uuid.proto
+#NODEJS protoc --js_out=import_style=commonjs,binary:. uuid.proto
