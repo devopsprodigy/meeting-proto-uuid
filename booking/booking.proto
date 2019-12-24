@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package api;
+package meeting.uuid.proto;
 
-option go_package = "booking";
+option go_package = "meeting-proto-uuid/booking";
 
 service Booking {
     rpc Create (CreateReq) returns (CreateRes);
