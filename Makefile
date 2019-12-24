@@ -5,9 +5,9 @@
 all: uuid-build booking-build
 
 uuid-build:
-	protoc --go_out=plugins=grpc:. uuid/uuid.proto
+	protoc -I uuid --go_out=plugins=grpc:uuid uuid/uuid.proto
 	echo "UUID COMPLETE"
 
 booking-build:
-	protoc --go_out=plugins=grpc:. booking/booking.proto
+	protoc -I booking --go_out=plugins=grpc:booking booking/booking.proto
 	echo "BOOKING COMPLETE"

@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package api;
 
+option go_package = "booking";
+
 service Booking {
     rpc Create (CreateReq) returns (CreateRes);
     rpc Find (FindReq) returns (FindRes);
