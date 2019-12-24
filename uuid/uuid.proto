@@ -9,6 +9,6 @@ message Response {
     string instance = 2;
 }
 
-service GetService{
-    rpc Get(Request) returns (Response);
+service GetService {
+    rpc Get(Request) returns (Response) {}
 }

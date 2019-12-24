@@ -1,12 +1,13 @@
+.DEFAULT_GOAL := all
+
 .SILENT:
-all: go node
 
-go: uuid.proto
-	echo "GO START"
-	protoc --go_out=plugins=grpc:. uuid.proto
-	echo "GO COMPLETE"
+all: uuid-build booking-build
 
-node: uuid.proto
-	echo "NODE START"
-	protoc --js_out=import_style=commonjs,binary:. uuid.proto
-	echo "NODE COMPLETE"
+uuid-build:
+	protoc --go_out=plugins=grpc:. uuid/uuid.proto
+	echo "UUID COMPLETE"
+
+booking-build:
+	protoc --go_out=plugins=grpc:. booking/booking.proto
+	echo "BOOKING COMPLETE"

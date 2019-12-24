@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package api;
+
+service Booking {
+    rpc Create (CreateReq) returns (CreateRes);
+    rpc Find (FindReq) returns (FindRes);
+}
+
+message CreateReq {
+    BookingModel booking = 1;
+}
+
+message CreateRes {
+    BookingModel booking = 1;
+}
+
+message BookingModel {
+    string id = 1;
+    string name = 2;
+    string startedAt = 3;
+    string endedAt = 4;
+    string roomId = 5;
+    string userId = 6;
+    repeated string participantsId = 7;
+}
+
+message FindReq {
+    string startedAt = 1;
+    string endedAt = 2;
+}
+
+message FindRes {
+    repeated BookingModel booking = 1;
+}
