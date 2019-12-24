@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package meeting.uuid.proto;
 
-option go_package = "meeting-proto-uuid/uuid";
+option go_package = "uuid";
 
 message Request {}
 

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package meeting.uuid.proto;
 
-option go_package = "meeting-proto-uuid/booking";
+option go_package = "booking";
 
 service Booking {
     rpc Create (CreateReq) returns (CreateRes);
