@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package meeting.uuid.proto;
+package uuid;
 
 option go_package = "uuid";
 

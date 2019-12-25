@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package room;
+
+option go_package = "room";
+
+service Room {
+    rpc FindById (FindReq) returns (FindRes);
+}
+
+message RoomModel {
+    string id = 1;
+    string name = 2;
+    string type = 3;
+}
+
+message FindReq {
+    repeated string id = 1;
+}
+
+message FindRes {
+    repeated RoomModel booking = 1;
+}

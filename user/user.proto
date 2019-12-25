@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "user";
+
+service User {
+    rpc FindById (FindReq) returns (FindRes);
+}
+
+message UserModel {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string telegram = 4;
+}
+
+message FindReq {
+    repeated string id = 1;
+}
+
+message FindRes {
+    repeated UserModel booking = 1;
+}
