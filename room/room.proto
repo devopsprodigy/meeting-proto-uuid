@@ -19,5 +19,5 @@ message FindReq {
 }
 
 message FindRes {
-    repeated Room booking = 1;
+    repeated Room room = 1;
 }

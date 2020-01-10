@@ -20,5 +20,5 @@ message FindReq {
 }
 
 message FindRes {
-    repeated User booking = 1;
+    repeated User user = 1;
 }
