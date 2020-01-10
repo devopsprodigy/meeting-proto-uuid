@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package booking;
 
-option go_package = "booking";
+option go_package = "github.com/devopsprodigy/meeting-proto-uuid/booking";
 
 import "room/room.proto";
 import "google/protobuf/timestamp.proto";
