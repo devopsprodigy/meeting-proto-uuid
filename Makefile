@@ -9,7 +9,7 @@ uuid-build:
 	echo "UUID COMPLETE"
 
 booking-build:
-	protoc -I booking --go_out=plugins=grpc:booking booking/booking.proto
+	protoc --proto_path . --go_out=plugins=grpc:. booking/booking.proto
 	echo "BOOKING COMPLETE"
 	
 room-build:

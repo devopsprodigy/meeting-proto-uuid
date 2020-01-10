@@ -4,34 +4,38 @@ package booking;
 
 option go_package = "booking";
 
-service Booking {
+import "room/room.proto";
+import "google/protobuf/timestamp.proto";
+
+service BookingService {
     rpc Create (CreateReq) returns (CreateRes);
     rpc Find (FindReq) returns (FindRes);
 }
 
+message Booking {
+    bytes id = 1;
+    string name = 2;
+    google.protobuf.Timestamp startTime = 3;
+    google.protobuf.Timestamp endTime = 4;
+    bytes roomId = 5;
+    bytes userId = 6;
+    repeated bytes participantsId = 7;
+    room.RoomModel room = 8;
+}
+
 message CreateReq {
-    BookingModel booking = 1;
+    Booking booking = 1;
 }
 
 message CreateRes {
-    BookingModel booking = 1;
-}
-
-message BookingModel {
-    string id = 1;
-    string name = 2;
-    string startedAt = 3;
-    string endedAt = 4;
-    string roomId = 5;
-    string userId = 6;
-    repeated string participantsId = 7;
+    Booking booking = 1;
 }
 
 message FindReq {
-    string startedAt = 1;
-    string endedAt = 2;
+    string startTime = 1;
+    string endTime = 2;
 }
 
 message FindRes {
-    repeated BookingModel booking = 1;
+    repeated Booking booking = 1;
 }
