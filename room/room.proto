@@ -15,7 +15,7 @@ message RoomModel {
 }
 
 message FindReq {
-    repeated string id = 1;
+    repeated bytes id = 1;
 }
 
 message FindRes {
