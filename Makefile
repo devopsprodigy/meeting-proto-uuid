@@ -5,17 +5,17 @@
 all: uuid-build booking-build room-build user-build
 
 uuid-build:
-	protoc -I uuid --go_out=plugins=grpc:uuid uuid/uuid.proto
+	protoc uuid/uuid.proto -I uuid --go_out=plugins=grpc:uuid
 	echo "UUID COMPLETE"
 
 booking-build:
-	protoc --proto_path=. --go_out=plugins=grpc:. booking/booking.proto
+	protoc booking/booking.proto -I. --go_out=plugins=grpc:.
 	echo "BOOKING COMPLETE"
 	
 room-build:
-	protoc --proto_path=. --go_out=plugins=grpc:. room/room.proto
+	protoc room/room.proto -I. --go_out=plugins=grpc:.
 	echo "ROOM COMPLETE"
 	
 user-build:
-	protoc -I user --go_out=plugins=grpc:user user/user.proto
+	protoc user/user.proto -I user --go_out=plugins=grpc:user
 	echo "USER COMPLETE"
