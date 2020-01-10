@@ -24,8 +24,8 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type RoomModel struct {
-	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+type Room struct {
+	Id                   []byte   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Type                 string   `protobuf:"bytes,3,opt,name=type,proto3" json:"type,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -33,46 +33,46 @@ type RoomModel struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RoomModel) Reset()         { *m = RoomModel{} }
-func (m *RoomModel) String() string { return proto.CompactTextString(m) }
-func (*RoomModel) ProtoMessage()    {}
-func (*RoomModel) Descriptor() ([]byte, []int) {
+func (m *Room) Reset()         { *m = Room{} }
+func (m *Room) String() string { return proto.CompactTextString(m) }
+func (*Room) ProtoMessage()    {}
+func (*Room) Descriptor() ([]byte, []int) {
 	return fileDescriptor_b6c5d20c74c34643, []int{0}
 }
 
-func (m *RoomModel) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RoomModel.Unmarshal(m, b)
+func (m *Room) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Room.Unmarshal(m, b)
 }
-func (m *RoomModel) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RoomModel.Marshal(b, m, deterministic)
+func (m *Room) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Room.Marshal(b, m, deterministic)
 }
-func (m *RoomModel) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RoomModel.Merge(m, src)
+func (m *Room) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Room.Merge(m, src)
 }
-func (m *RoomModel) XXX_Size() int {
-	return xxx_messageInfo_RoomModel.Size(m)
+func (m *Room) XXX_Size() int {
+	return xxx_messageInfo_Room.Size(m)
 }
-func (m *RoomModel) XXX_DiscardUnknown() {
-	xxx_messageInfo_RoomModel.DiscardUnknown(m)
+func (m *Room) XXX_DiscardUnknown() {
+	xxx_messageInfo_Room.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_RoomModel proto.InternalMessageInfo
+var xxx_messageInfo_Room proto.InternalMessageInfo
 
-func (m *RoomModel) GetId() string {
+func (m *Room) GetId() []byte {
 	if m != nil {
 		return m.Id
 	}
-	return ""
+	return nil
 }
 
-func (m *RoomModel) GetName() string {
+func (m *Room) GetName() string {
 	if m != nil {
 		return m.Name
 	}
 	return ""
 }
 
-func (m *RoomModel) GetType() string {
+func (m *Room) GetType() string {
 	if m != nil {
 		return m.Type
 	}
@@ -119,10 +119,10 @@ func (m *FindReq) GetId() [][]byte {
 }
 
 type FindRes struct {
-	Booking              []*RoomModel `protobuf:"bytes,1,rep,name=booking,proto3" json:"booking,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
-	XXX_unrecognized     []byte       `json:"-"`
-	XXX_sizecache        int32        `json:"-"`
+	Booking              []*Room  `protobuf:"bytes,1,rep,name=booking,proto3" json:"booking,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *FindRes) Reset()         { *m = FindRes{} }
@@ -150,7 +150,7 @@ func (m *FindRes) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_FindRes proto.InternalMessageInfo
 
-func (m *FindRes) GetBooking() []*RoomModel {
+func (m *FindRes) GetBooking() []*Room {
 	if m != nil {
 		return m.Booking
 	}
@@ -158,7 +158,7 @@ func (m *FindRes) GetBooking() []*RoomModel {
 }
 
 func init() {
-	proto.RegisterType((*RoomModel)(nil), "room.RoomModel")
+	proto.RegisterType((*Room)(nil), "room.Room")
 	proto.RegisterType((*FindReq)(nil), "room.FindReq")
 	proto.RegisterType((*FindRes)(nil), "room.FindRes")
 }
@@ -166,21 +166,21 @@ func init() {
 func init() { proto.RegisterFile("room/room.proto", fileDescriptor_b6c5d20c74c34643) }
 
 var fileDescriptor_b6c5d20c74c34643 = []byte{
-	// 216 bytes of a gzipped FileDescriptorProto
+	// 218 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0xe2, 0x2f, 0xca, 0xcf, 0xcf,
-	0xd5, 0x07, 0x11, 0x7a, 0x05, 0x45, 0xf9, 0x25, 0xf9, 0x42, 0x2c, 0x20, 0xb6, 0x92, 0x33, 0x17,
-	0x67, 0x10, 0x90, 0xf6, 0xcd, 0x4f, 0x49, 0xcd, 0x11, 0xe2, 0xe3, 0x62, 0xca, 0x4c, 0x91, 0x60,
-	0x54, 0x60, 0xd4, 0xe0, 0x0c, 0x02, 0xb2, 0x84, 0x84, 0xb8, 0x58, 0xf2, 0x12, 0x73, 0x53, 0x25,
-	0x98, 0xc0, 0x22, 0x60, 0x36, 0x48, 0xac, 0xa4, 0xb2, 0x20, 0x55, 0x82, 0x19, 0x22, 0x06, 0x62,
-	0x2b, 0x49, 0x72, 0xb1, 0xbb, 0x65, 0xe6, 0xa5, 0x04, 0xa5, 0x16, 0xc2, 0x8d, 0x60, 0xd6, 0xe0,
-	0x01, 0x19, 0xa1, 0x64, 0x02, 0x93, 0x2a, 0x16, 0xd2, 0xe4, 0x62, 0x4f, 0xca, 0xcf, 0xcf, 0xce,
-	0xcc, 0x4b, 0x07, 0xcb, 0x73, 0x1b, 0xf1, 0xeb, 0x81, 0x9d, 0x03, 0xb7, 0x3f, 0x08, 0x26, 0x6f,
-	0x64, 0xc0, 0xc5, 0x02, 0x12, 0x15, 0xd2, 0xe0, 0xe2, 0x00, 0xe9, 0x76, 0xaa, 0xf4, 0x4c, 0x11,
-	0xe2, 0x85, 0xa8, 0x86, 0x5a, 0x24, 0x85, 0xc2, 0x2d, 0x76, 0x32, 0x8a, 0x32, 0x48, 0xcf, 0x2c,
-	0xc9, 0x28, 0x4d, 0xd2, 0x4b, 0x06, 0x7a, 0x33, 0x25, 0xb5, 0x2c, 0xbf, 0xa0, 0x18, 0xe8, 0xcf,
-	0x94, 0xcc, 0xf4, 0x4a, 0xfd, 0xdc, 0xd4, 0xd4, 0x12, 0xa0, 0xa9, 0xba, 0x60, 0x7f, 0xeb, 0x96,
-	0x96, 0x66, 0xa6, 0x80, 0xc3, 0x21, 0x89, 0x0d, 0x2c, 0x60, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff,
-	0x96, 0x6a, 0xdb, 0x5c, 0x1b, 0x01, 0x00, 0x00,
+	0xd5, 0x07, 0x11, 0x7a, 0x05, 0x45, 0xf9, 0x25, 0xf9, 0x42, 0x2c, 0x20, 0xb6, 0x92, 0x1d, 0x17,
+	0x4b, 0x10, 0x90, 0x16, 0xe2, 0xe3, 0x62, 0xca, 0x4c, 0x91, 0x60, 0x54, 0x60, 0xd4, 0xe0, 0x09,
+	0x02, 0xb2, 0x84, 0x84, 0xb8, 0x58, 0xf2, 0x12, 0x73, 0x53, 0x25, 0x98, 0x80, 0x22, 0x9c, 0x41,
+	0x60, 0x36, 0x48, 0xac, 0xa4, 0xb2, 0x20, 0x55, 0x82, 0x19, 0x22, 0x06, 0x62, 0x2b, 0x49, 0x72,
+	0xb1, 0xbb, 0x65, 0xe6, 0xa5, 0x04, 0xa5, 0x16, 0xc2, 0x8d, 0x60, 0x86, 0x18, 0xa1, 0xa4, 0x0f,
+	0x93, 0x2a, 0x16, 0x52, 0xe1, 0x62, 0x4f, 0xca, 0xcf, 0xcf, 0xce, 0xcc, 0x4b, 0x07, 0xcb, 0x73,
+	0x1b, 0x71, 0xe9, 0x81, 0x5d, 0x02, 0xb2, 0x3a, 0x08, 0x26, 0x65, 0x64, 0xce, 0xc5, 0x0d, 0x12,
+	0x08, 0x4e, 0x2d, 0x2a, 0xcb, 0x4c, 0x4e, 0x15, 0xd2, 0xe0, 0xe2, 0x00, 0xe9, 0x77, 0xaa, 0xf4,
+	0x4c, 0x11, 0xe2, 0x85, 0xa8, 0x87, 0x5a, 0x25, 0x85, 0xc2, 0x2d, 0x76, 0x32, 0x8a, 0x32, 0x48,
+	0xcf, 0x2c, 0xc9, 0x28, 0x4d, 0xd2, 0x4b, 0x06, 0xfa, 0x31, 0x25, 0xb5, 0x2c, 0xbf, 0xa0, 0x18,
+	0xe8, 0xc9, 0x94, 0xcc, 0xf4, 0x4a, 0xfd, 0xdc, 0xd4, 0xd4, 0x12, 0xa0, 0xe1, 0xba, 0x60, 0x4f,
+	0xeb, 0x96, 0x96, 0x66, 0xa6, 0x80, 0x03, 0x21, 0x89, 0x0d, 0x2c, 0x60, 0x0c, 0x08, 0x00, 0x00,
+	0xff, 0xff, 0xd8, 0x9e, 0x02, 0x1a, 0x18, 0x01, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -191,72 +191,72 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// RoomClient is the client API for Room service.
+// RoomServiceClient is the client API for RoomService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type RoomClient interface {
+type RoomServiceClient interface {
 	FindById(ctx context.Context, in *FindReq, opts ...grpc.CallOption) (*FindRes, error)
 }
 
-type roomClient struct {
+type roomServiceClient struct {
 	cc *grpc.ClientConn
 }
 
-func NewRoomClient(cc *grpc.ClientConn) RoomClient {
-	return &roomClient{cc}
+func NewRoomServiceClient(cc *grpc.ClientConn) RoomServiceClient {
+	return &roomServiceClient{cc}
 }
 
-func (c *roomClient) FindById(ctx context.Context, in *FindReq, opts ...grpc.CallOption) (*FindRes, error) {
+func (c *roomServiceClient) FindById(ctx context.Context, in *FindReq, opts ...grpc.CallOption) (*FindRes, error) {
 	out := new(FindRes)
-	err := c.cc.Invoke(ctx, "/room.Room/FindById", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/room.RoomService/FindById", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// RoomServer is the server API for Room service.
-type RoomServer interface {
+// RoomServiceServer is the server API for RoomService service.
+type RoomServiceServer interface {
 	FindById(context.Context, *FindReq) (*FindRes, error)
 }
 
-// UnimplementedRoomServer can be embedded to have forward compatible implementations.
-type UnimplementedRoomServer struct {
+// UnimplementedRoomServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedRoomServiceServer struct {
 }
 
-func (*UnimplementedRoomServer) FindById(ctx context.Context, req *FindReq) (*FindRes, error) {
+func (*UnimplementedRoomServiceServer) FindById(ctx context.Context, req *FindReq) (*FindRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindById not implemented")
 }
 
-func RegisterRoomServer(s *grpc.Server, srv RoomServer) {
-	s.RegisterService(&_Room_serviceDesc, srv)
+func RegisterRoomServiceServer(s *grpc.Server, srv RoomServiceServer) {
+	s.RegisterService(&_RoomService_serviceDesc, srv)
 }
 
-func _Room_FindById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RoomService_FindById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(FindReq)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RoomServer).FindById(ctx, in)
+		return srv.(RoomServiceServer).FindById(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/room.Room/FindById",
+		FullMethod: "/room.RoomService/FindById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoomServer).FindById(ctx, req.(*FindReq))
+		return srv.(RoomServiceServer).FindById(ctx, req.(*FindReq))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _Room_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "room.Room",
-	HandlerType: (*RoomServer)(nil),
+var _RoomService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "room.RoomService",
+	HandlerType: (*RoomServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "FindById",
-			Handler:    _Room_FindById_Handler,
+			Handler:    _RoomService_FindById_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

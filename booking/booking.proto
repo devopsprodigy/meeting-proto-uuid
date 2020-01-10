@@ -5,6 +5,7 @@ package booking;
 option go_package = "github.com/devopsprodigy/meeting-proto-uuid/booking";
 
 import "room/room.proto";
+import "user/user.proto";
 import "google/protobuf/timestamp.proto";
 
 service BookingService {
@@ -20,7 +21,9 @@ message Booking {
     bytes roomId = 5;
     bytes userId = 6;
     repeated bytes participantsId = 7;
-    room.RoomModel room = 8;
+    room.Room room = 8;
+    user.User user = 9;
+    repeated user.User participants = 10;
 }
 
 message CreateReq {
@@ -32,8 +35,8 @@ message CreateRes {
 }
 
 message FindReq {
-    string startTime = 1;
-    string endTime = 2;
+    google.protobuf.Timestamp startTime = 1;
+    google.protobuf.Timestamp endTime = 2;
 }
 
 message FindRes {

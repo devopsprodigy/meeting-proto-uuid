@@ -17,5 +17,5 @@ room-build:
 	echo "ROOM COMPLETE"
 
 user-build:
-	protoc user/user.proto -I user --go_out=plugins=grpc:user
+	protoc user/user.proto -I. --go_out=plugins=grpc:.
 	echo "USER COMPLETE"

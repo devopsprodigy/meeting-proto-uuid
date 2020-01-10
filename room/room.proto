@@ -4,12 +4,12 @@ package room;
 
 option go_package = "github.com/devopsprodigy/meeting-proto-uuid/room";
 
-service Room {
+service RoomService {
     rpc FindById (FindReq) returns (FindRes);
 }
 
-message RoomModel {
-    string id = 1;
+message Room {
+    bytes id = 1;
     string name = 2;
     string type = 3;
 }
@@ -19,5 +19,5 @@ message FindReq {
 }
 
 message FindRes {
-    repeated RoomModel booking = 1;
+    repeated Room booking = 1;
 }
