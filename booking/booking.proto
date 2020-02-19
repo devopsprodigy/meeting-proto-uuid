@@ -11,6 +11,8 @@ import "google/protobuf/timestamp.proto";
 service BookingService {
     rpc Create (CreateReq) returns (CreateRes);
     rpc Find (FindReq) returns (FindRes);
+    rpc Update (UpdateReq) returns (UpdateRes);
+    rpc Delete (DeleteReq) returns (DeleteRes);
 }
 
 message Booking {
@@ -41,4 +43,20 @@ message FindReq {
 
 message FindRes {
     repeated Booking booking = 1;
+}
+
+message UpdateReq {
+    Booking booking = 1;
+}
+
+message UpdateRes {
+    Booking booking = 1;
+}
+
+message DeleteReq {
+    bytes id = 1;
+}
+
+message DeleteRes {
+    string message = 2;
 }
